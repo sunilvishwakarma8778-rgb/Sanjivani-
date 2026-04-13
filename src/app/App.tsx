@@ -366,7 +366,7 @@ export default function App() {
               </motion.div>
 
               <div className="flex-1">
-                <h3 className="text-3xl font-bold text-white mb-2">
+                <h3 className="text-3xl font-bold text-black mb-2">
                   UI/UX Design Course
                 </h3>
                 <p className="text-xl text-purple-300 mb-3">Physics Wallah (Virtual)</p>
