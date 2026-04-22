@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import {
   Palette,
   Pen,
@@ -12,8 +12,9 @@ import {
   Phone,
   MapPin,
   ChevronDown,
-  Award
-} from 'lucide-react';
+  Award,
+  Linkedin,
+} from "lucide-react";
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,28 +23,47 @@ export default function App() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   const skills = [
-    { name: 'UI/UX Design', icon: Palette, color: 'from-purple-500 to-pink-500' },
-    { name: 'Wireframing', icon: Layout, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Prototyping', icon: Pen, color: 'from-violet-500 to-purple-500' },
-    { name: 'User Flows', icon: Workflow, color: 'from-fuchsia-500 to-pink-500' },
-    { name: 'Visual Design', icon: Eye, color: 'from-indigo-500 to-blue-500' },
-    { name: 'Interaction Design', icon: Sparkles, color: 'from-cyan-500 to-teal-500' },
-    { name: 'Design Thinking', icon: Lightbulb, color: 'from-purple-500 to-blue-500' }
+    {
+      name: "UI/UX Design",
+      icon: Palette,
+      color: "from-purple-500 to-pink-500",
+    },
+    { name: "Wireframing", icon: Layout, color: "from-blue-500 to-cyan-500" },
+    { name: "Prototyping", icon: Pen, color: "from-violet-500 to-purple-500" },
+    {
+      name: "User Flows",
+      icon: Workflow,
+      color: "from-fuchsia-500 to-pink-500",
+    },
+    { name: "Visual Design", icon: Eye, color: "from-indigo-500 to-blue-500" },
+    {
+      name: "Interaction Design",
+      icon: Sparkles,
+      color: "from-cyan-500 to-teal-500",
+    },
+    {
+      name: "Design Thinking",
+      icon: Lightbulb,
+      color: "from-purple-500 to-blue-500",
+    },
   ];
 
   const scrollToWork = () => {
-    document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div ref={containerRef} className="w-full min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white overflow-x-hidden">
+    <div
+      ref={containerRef}
+      className="w-full min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white overflow-x-hidden"
+    >
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
-            opacity: [0.3, 0.5, 0.3]
+            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
@@ -52,7 +72,7 @@ export default function App() {
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
-            opacity: [0.4, 0.6, 0.4]
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
@@ -60,7 +80,7 @@ export default function App() {
         <motion.div
           animate={{
             y: [0, -50, 0],
-            opacity: [0.2, 0.4, 0.2]
+            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-fuchsia-500/10 to-cyan-500/10 rounded-full blur-3xl"
@@ -75,13 +95,13 @@ export default function App() {
             animate={{
               y: [0, -30, 0],
               x: [0, Math.random() * 20 - 10, 0],
-              rotate: [0, 180, 360]
+              rotate: [0, 180, 360],
             }}
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.5
+              delay: i * 0.5,
             }}
             className="absolute"
             style={{
@@ -89,7 +109,9 @@ export default function App() {
               left: `${Math.random() * 100}%`,
             }}
           >
-            <div className={`w-16 h-16 border-2 border-purple-500/30 ${i % 2 === 0 ? 'rounded-lg' : 'rounded-full'} backdrop-blur-sm`} />
+            <div
+              className={`w-16 h-16 border-2 border-purple-500/30 ${i % 2 === 0 ? "rounded-lg" : "rounded-full"} backdrop-blur-sm`}
+            />
           </motion.div>
         ))}
       </div>
@@ -109,10 +131,10 @@ export default function App() {
             <motion.div
               animate={{
                 boxShadow: [
-                  '0 0 20px rgba(168, 85, 247, 0.4)',
-                  '0 0 60px rgba(168, 85, 247, 0.6)',
-                  '0 0 20px rgba(168, 85, 247, 0.4)'
-                ]
+                  "0 0 20px rgba(168, 85, 247, 0.4)",
+                  "0 0 60px rgba(168, 85, 247, 0.6)",
+                  "0 0 20px rgba(168, 85, 247, 0.4)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-md border border-purple-500/30 mb-8"
@@ -153,19 +175,29 @@ export default function App() {
             transition={{ duration: 1, delay: 0.8 }}
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)'
+              boxShadow: "0 0 40px rgba(168, 85, 247, 0.6)",
             }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToWork}
             className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-semibold text-lg overflow-hidden"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-cyan-600"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <span className="relative z-10">View My Work</span>
+            <motion.a
+              href="https://www.figma.com/design/yFsDMTDnWUaa2dqinGFNoc/portfolio-file?node-id=0-1&t=0WEvVSZEiibbbXEx-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-block overflow-hidden px-4 py-1 rounded-xl cursor-pointer"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-cyan-600"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+
+              <span className="relative z-10 text-white font-semibold">
+                View My Work
+              </span>
+            </motion.a>
           </motion.button>
 
           <motion.div
@@ -204,9 +236,10 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-3xl" />
 
               <p className="relative text-xl md:text-2xl text-purple-100/90 leading-relaxed font-light">
-                A passionate UI/UX designer with a strong foundation in design thinking,
-                wireframing, and prototyping. Currently pursuing BCA and continuously
-                learning to create engaging digital experiences.
+                A passionate UI/UX designer with a strong foundation in design
+                thinking, wireframing, and prototyping. Currently pursuing BCA
+                and continuously learning to create engaging digital
+                experiences.
               </p>
             </motion.div>
           </motion.div>
@@ -238,7 +271,7 @@ export default function App() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 20px 60px rgba(168, 85, 247, 0.3)'
+                  boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)",
                 }}
                 className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/50 transition-all duration-300"
               >
@@ -298,10 +331,10 @@ export default function App() {
             <motion.div
               animate={{
                 boxShadow: [
-                  '0 0 20px rgba(168, 85, 247, 0.8)',
-                  '0 0 40px rgba(59, 130, 246, 0.8)',
-                  '0 0 20px rgba(168, 85, 247, 0.8)'
-                ]
+                  "0 0 20px rgba(168, 85, 247, 0.8)",
+                  "0 0 40px rgba(59, 130, 246, 0.8)",
+                  "0 0 20px rgba(168, 85, 247, 0.8)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="absolute left-0 top-8 w-4 h-4 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
@@ -315,8 +348,12 @@ export default function App() {
                   Bachelor of Computer Applications (BCA)
                 </h3>
                 <p className="text-xl text-purple-300 mb-2">2022 – 2025</p>
-                <p className="text-lg text-purple-200/70">Kurukshetra University</p>
-                <p className="text-lg text-purple-200/70">Dr. Bhim Rao Ambedkar Govt. College</p>
+                <p className="text-lg text-purple-200/70">
+                  Kurukshetra University
+                </p>
+                <p className="text-lg text-purple-200/70">
+                  Dr. Bhim Rao Ambedkar Govt. College
+                </p>
               </div>
             </div>
           </motion.div>
@@ -345,13 +382,14 @@ export default function App() {
             transition={{ duration: 0.8 }}
             whileHover={{
               scale: 1.02,
-              boxShadow: '0 30px 80px rgba(168, 85, 247, 0.4)'
+              boxShadow: "0 30px 80px rgba(168, 85, 247, 0.4)",
             }}
             className="relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border-2 border-transparent bg-clip-padding"
             style={{
-              backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #a855f7, #3b82f6, #a855f7)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box'
+              backgroundImage:
+                "linear-gradient(white, white), linear-gradient(135deg, #a855f7, #3b82f6, #a855f7)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-3xl" />
@@ -369,16 +407,20 @@ export default function App() {
                 <h3 className="text-3xl font-bold text-black mb-2">
                   UI/UX Design Course
                 </h3>
-                <p className="text-xl text-purple-300 mb-3">Physics Wallah (Virtual)</p>
+                <p className="text-xl text-purple-300 mb-3">
+                  Physics Wallah (Virtual)
+                </p>
 
                 <motion.div
                   animate={{
-                    opacity: [0.6, 1, 0.6]
+                    opacity: [0.6, 1, 0.6],
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30"
                 >
-                  <span className="text-green-400 font-semibold">● Ongoing</span>
+                  <span className="text-green-400 font-semibold">
+                    ● Ongoing
+                  </span>
                 </motion.div>
               </div>
             </div>
@@ -403,11 +445,39 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Mail, label: 'Email', value: 'Sanjurohilla2322@gmail.com', gradient: 'from-purple-500 to-pink-500' },
-              { icon: Phone, label: 'Phone', value: '+91 9350164254', gradient: 'from-blue-500 to-cyan-500' },
-              { icon: MapPin, label: 'Location', value: 'Yamunanagar', gradient: 'from-violet-500 to-purple-500' }
+               {
+  icon: Linkedin,
+  label: "LinkedIn",
+  value: "sanjivani-rohilla-289335359",
+  link: "https://www.linkedin.com/in/sanjivani-rohilla-289335359",
+  gradient: "from-blue-600 to-cyan-500",
+},
+              {
+                icon: Mail,
+                label: "Email",
+                value: "Sanjurohilla2322@gmail.com",
+                link: "mailto:Sanjurohilla2322@gmail.com",
+                gradient: "from-purple-500 to-pink-500",
+              },
+              {
+                icon: Phone,
+                label: "Phone",
+                value: "+91 9350164254",
+                link: "tel:+919350164254",
+                gradient: "from-blue-500 to-cyan-500",
+              },
+              {
+                icon: MapPin,
+                label: "Location",
+                value: "Yamunanagar",
+                link: "https://www.google.com/maps/search/?api=1&query=Yamunanagar",
+                gradient: "from-violet-500 to-purple-500",
+              },
             ].map((contact, index) => (
-              <motion.div
+              <motion.a
+                href={contact.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={contact.label}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -415,9 +485,9 @@ export default function App() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 20px 60px rgba(168, 85, 247, 0.3)'
+                  boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)",
                 }}
-                className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/50 transition-all duration-300"
+                className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 rounded-2xl transition-all duration-300" />
 
@@ -434,7 +504,7 @@ export default function App() {
                 <p className="relative text-xl text-white break-words">
                   {contact.value}
                 </p>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -450,7 +520,7 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="text-purple-200/60 text-lg"
           >
-            Designed with passion by{' '}
+            Designed with passion by{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold">
               Sanjivani Rohilla
             </span>
